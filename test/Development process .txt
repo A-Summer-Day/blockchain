@@ -1,0 +1,25 @@
+1. Create a new Laravel project
+2. Set up database configuration
+3. Create 2 new database tables: 1 to store user records, and 1 to store wallet records
+4. Install UI composer package
+5. Create the corresponding eloquent models: User and Wallet. Define the fillable fields in both models. Define relationship between the 2 models: one-to-many (One user has many wallets)
+6. Create seeder files for User and Wallet 
+7. Add seeder to DatabaseSeeder class, use call method to execute it
+8. Run database seed
+9. Define all necessary routes. In this app, there are 4 routes: 1 to view listing of all wallets, 1 to view details of a specific wallet, 1 to open form to send money, and 1 to handle the send money action
+10. Back-end work is finished here. Next is front-end work
+11. Create corresponding blade templates for each route
+13. Read data passed from server and render the view
+
+
+Tools I used to build this app: 
+- Laravel: PHP framework to handle routing, templating, data manipulation 
+- BlockIo API: To handle wallets, addresses and transactions 
+- Bootstrap: CSS framework to build responsive interface
+- jQuery: JavaScript library that makes JavaScript easier to use on website
+- Font Awesome: font and icon toolkit
+
+The hardest part for me was to find a suitable API to implement. With Blockchain I had to request API key, and it would take 2-3 business days. As of the time I am writing this, I still have not recevied the API key. With Blockcypher, the SDKS for PHP are deprecated and no longer provide support so I decided to not go with it. In the end, I chose BlockIo as it is simple, clean, easy to use, has Testnet Wallets which makes it easy to test, povide address validation as well. 
+
+One important note is that the app does not implement any authentication as the main goal is to demonstrate how to send money from different wallets and addresses. In reality, there should be checks if the user is logged in and if the logged in user has access to certain wallets. I also use the free version of BlockIo API. I believe the paid plans would come with many more features, including security.
+

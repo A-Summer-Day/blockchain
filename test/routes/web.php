@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/wallets/{wallet}', 'HomeController@getWalletDetails')->name('wallet-details');
+Route::get('/open-form/{wallet_id}/{address}', 'HomeController@openSendMoneyForm')->name('open-form');
+Route::post('/send-money', 'HomeController@sendMoney')->name('send-money');
+
